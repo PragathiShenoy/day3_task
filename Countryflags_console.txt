@@ -1,0 +1,36 @@
+1. Use the rest countries API URL's : https://restcountries.com/v3.1/all, and display all the country flags in the console; 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+     var req = new XMLHttpRequest()
+     console.log(req)
+     req.open("GET", "https://restcountries.com/v3.1/all")
+     req.send()
+     console.log(req)
+     req.onload = function(){
+        var data= JSON.parse(req.response)
+        //console.log(data)
+        //console.log(data[0].name)
+        //250 country data
+
+        for (var i=0; i<data.length; i++){
+            var country = data[i];
+            //console.log(data[i].name)
+
+            console.log(`Flag: ${country.flags.svg}`)
+                  
+            
+        }
+        
+    }
+    </script>  
+</body>
+</html>

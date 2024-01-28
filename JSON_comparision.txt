@@ -1,0 +1,23 @@
+Q. How to compare two JSON have the same properties without order; 
+a. let obj 1= {name: "Person 1", age:5}; 
+b. obj 2= {age:5, name: "Person 1"}; 
+
+A: While you can use JSON.stringify() to compare JSON objects with the same properties but different orders, it's essential to be aware of its limitations and consider alternative approaches:
+
+1. Using JSON.stringify() for Simple Comparisons:
+
+let obj1 = {name: "Person 1", age: 5};
+let obj2 = {age: 5, name: "Person 1"};
+
+// Convert objects to JSON strings
+let str1 = JSON.stringify(obj1);
+let str2 = JSON.stringify(obj2);
+
+// Compare the JSON strings
+if (str1 === str2) {
+ console.log("The JSON objects are equal.");
+} else {
+ console.log("The JSON objects are not equal.");
+}
+
+In this example, JSON.stringify is used to convert the objects into JSON strings. After that, you can compare the strings for equality. This approach ignores the order of properties within the objects, making it suitable for comparing JSON objects with the same properties but in different orders.
